@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(12, 14, 24); /* Глубокий черный */
+  color: white;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Фон и Сферы */
+.bg-wrapper {
+  position: fixed;
+  width: 100%; height: 100%;
+  z-index: -1;
+  filter: blur(120px);
+  transition: opacity 1.2s ease;
+}
+.bg-wrapper.hide-bg { opacity: 0; } /* Плавный уход в черный */
+
+.blob { position: absolute; width: 45vw; height: 45vw; border-radius: 50%; opacity: 0.5; }
+.b1 { background: #920000; top: -10%; left: -5%; }
+.b2 { background: #ff0000; bottom: -10%; right: -5%; }
+.b3 { background: #121212; top: 30%; left: 30%; }
+
+/* Меню */
+.top-menu {
+  position: fixed; top: 0; width: 100%; padding: 20px 0;
+  background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(15px);
+  z-index: 100; transform: translateY(-100%);
+  transition: transform 0.7s ease-in-out;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.top-menu.show { transform: translateY(0); }
+
+.nav-container {
+  max-width: 1200px; width: 90%; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo img { height: 35px; filter: drop-shadow(0 0 10px #ff0000); }
+.top-menu ul { display: flex; list-style: none; gap: 35px; }
+.top-menu a { color: white; text-decoration: none; text-transform: uppercase; font-size: 13px; opacity: 0.7; transition: 0.3s; }
+.top-menu a:hover { opacity: 1; color: #ff0000; }
+
+/* Общие настройки текста */
+.fixed-frame {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100vh;
+  display: flex; justify-content: center; align-items: center;
+  z-index: 5;
+}
+.text-wrapper { position: relative; text-align: center; width: 100%; }
+
+.text-node {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+}
+
+.text-node.visible { opacity: 1; transform: translate(-50%, -50%); }
+.text-node.up { opacity: 0; transform: translate(-50%, -150%); }
+.text-node.hidden { opacity: 0; transform: translate(-50%, 50%); }
+
+h1 { font-size: 4rem; text-transform: uppercase; text-shadow: 0 0 20px rgba(255, 0, 0, 0.5); margin-bottom: 10px; }
+p { font-size: 1.2rem; color: #ff0000; letter-spacing: 2px; }
+
+/* СТИЛИ ДЛЯ ФИНАЛЬНОГО ЭКРАНА С ФОТО */
+.final-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.sub-orange { color: #f56300; font-weight: bold; font-size: 1.1rem; margin-bottom: 10px; text-transform: none; }
+.apple-title { font-size: 4.5rem; text-transform: none; text-shadow: none; line-height: 1.1; }
+.apple-desc { color: #86868b; font-size: 1.2rem; max-width: 700px; margin-top: 20px; text-transform: none; letter-spacing: 0; }
+
+.final-image-container {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 800px;
+}
+.final-photo {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(255,255,255,0.05));
+}
+
+.scroll-spacer { height: calc(100vh + 2500px); }
