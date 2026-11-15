@@ -20,18 +20,18 @@ document.addEventListener('scroll', () => {
 
   let scrollY = window.scrollY;
 
-  // Меню и Фон
+  // Menu and background
   if (scrollY > 100) menu.classList.add('show');
   else menu.classList.remove('show');
 
-  // Плавный уход фона на финальном тексте
+  // Fade background out on the final section
   if (scrollY >= 2300) {
     bg.classList.add('hide-bg');
   } else {
     bg.classList.remove('hide-bg');
   }
 
-  // Переключение состояний текста
+  // Toggle text states
   if (scrollY < 400) {
     t1.className = 'text-node visible';
     t2.className = 'text-node hidden';
@@ -57,7 +57,7 @@ document.addEventListener('scroll', () => {
   }
 });
 
-// Анимация сфер
+// Blob animation
 const blobs = document.querySelectorAll('.blob');
 let offset = 0;
 function animateBlobs() {
